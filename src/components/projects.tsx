@@ -11,6 +11,14 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, GitBranch } from "lucide-react";
 
 const projects = [
+    {
+    title: "Guardrailkit",
+    description:
+      " A guardrail for LLM apps (rule-based + LLM-classifier policies) paired with an adversarial-testing framework that attacks it directly, uncovering a real judge-hallucination bug through live campaign runs.",
+    tags: ["Python", "Pydantic", "OpenAI API", "Garak", "Nemo Guardrails"],
+    liveUrl: "https://github.com/Suraj370/GuardrailKit",
+    githubUrl: "https://github.com/Suraj370/GuardrailKit",
+  },
   {
     title: "Aven.",
     description:
@@ -18,14 +26,6 @@ const projects = [
     tags: ["Next.js", "TypeScript"],
     liveUrl: "https://boutique-website-landing-page.vercel.app/",
     githubUrl: "https://github.com/Suraj370/boutique-website-landing-page",
-  },
-  {
-    title: "Nova Dashboard",
-    description:
-      "Analytics dashboard with interactive charts, role-based access, and a refined dark UI optimized for data-heavy workflows.",
-    tags: ["React", "Node.js", "Recharts", "Tailwind"],
-    liveUrl: "#",
-    githubUrl: "#",
   },
   {
     title: "Pulse Design System",
