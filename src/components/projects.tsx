@@ -11,7 +11,15 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, GitBranch } from "lucide-react";
 
 const projects = [
-    {
+  {
+    title: "Seoye-chi",
+    description:
+      "A minimalist Korean calligraphy (서예) app — draw pressure-sensitive brush strokes on digital rice paper, right in your browser.",
+    tags: ["Next.js", "ReactJS", "Typescript", "TailwindCSS"],
+    liveUrl: "https://seoye-chi.vercel.app",
+    githubUrl: "https://github.com/Suraj370/seoye",
+  },
+  {
     title: "Guardrailkit",
     description:
       " A guardrail for LLM apps (rule-based + LLM-classifier policies) paired with an adversarial-testing framework that attacks it directly, uncovering a real judge-hallucination bug through live campaign runs.",
@@ -26,14 +34,6 @@ const projects = [
     tags: ["Next.js", "TypeScript"],
     liveUrl: "https://boutique-website-landing-page.vercel.app/",
     githubUrl: "https://github.com/Suraj370/boutique-website-landing-page",
-  },
-  {
-    title: "Pulse Design System",
-    description:
-      "A reusable component library and design tokens package used across multiple products for consistent UI/UX.",
-    tags: ["Storybook", "Figma", "React", "CSS Tokens"],
-    liveUrl: "#",
-    githubUrl: "#",
   },
   {
     title: "Orbit Chat",

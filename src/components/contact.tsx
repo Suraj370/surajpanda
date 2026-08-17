@@ -2,7 +2,7 @@ import { Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
-const EMAIL_DISPLAY = "surajpanda2077 [ @ ] gmail [ . ]com";
+const EMAIL_DISPLAY = "surajpanda2077 [@] gmail [.]com";
 const EMAIL_MAILTO = "surajpanda2077@gmail.com";
 
 export function Contact() {
