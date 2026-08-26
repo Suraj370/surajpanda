@@ -1,66 +1,40 @@
-import { Mail, MapPin } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { ArrowUpRight, ExternalLink, GitBranch, Mail, Share2 } from "lucide-react";
 
-const EMAIL_DISPLAY = "surajpanda2077 [@] gmail [.]com";
-const EMAIL_MAILTO = "surajpanda2077@gmail.com";
+const EMAIL_DISPLAY = "surajpanda2077 [@] gmail [.] com";
+const links = [
+  { label: "X / Twitter", handle: "@surajpanda2077", href: "https://x.com/surajpanda2077", icon: Share2 },
+  { label: "LinkedIn", handle: "/in/panda-suraj", href: "https://www.linkedin.com/in/panda-suraj/", icon: ExternalLink },
+  { label: "GitHub", handle: "Suraj370", href: "https://github.com/Suraj370", icon: GitBranch },
+];
 
 export function Contact() {
   return (
-    <section id="contact" className="relative px-4 pb-8 pt-24 sm:px-6">
-      <div className="mx-auto max-w-6xl">
-        <div className="gold-border-glow rounded-2xl border border-gold/25 bg-gradient-to-b from-card to-background px-6 py-16 text-center sm:px-12">
-          <p className="mb-2 text-sm font-medium uppercase tracking-[0.25em] text-gold/60">
-            Let&apos;s connect
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight text-gold sm:text-4xl">
-            Contact Me
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-gold/65">
-            Have a project in mind or want to collaborate? Drop me an email —
-            I&apos;d love to hear from you.
-          </p>
-
-          <div className="mt-10 flex flex-col items-center gap-4">
-            <Button
-              size="lg"
-              nativeButton={false}
-              className="h-12 gap-2 bg-gold px-8 text-base text-primary-foreground hover:bg-gold-light"
-              render={
-                <a
-                  href={`mailto:${EMAIL_MAILTO}`}
-                  aria-label={`Email ${EMAIL_DISPLAY}`}
-                />
-              }
-            >
-              <Mail data-icon="inline-start" className="size-5" />
-              Contact Me
-            </Button>
-
-            <a
-              href={`mailto:${EMAIL_MAILTO}`}
-              className="group inline-flex items-center gap-2 text-gold/80 transition-colors hover:text-gold-light"
-            >
-              <Mail className="size-4 text-gold-dark transition-colors group-hover:text-gold" />
-              <span className="font-mono text-sm tracking-wide sm:text-base">
-                {EMAIL_DISPLAY}
-              </span>
+    <section id="contact" className="section-rule px-5 pb-8 pt-24 lg:px-8">
+      <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+        <p className="eyebrow mb-3 text-coral">Have a good one?</p>
+        <h2 className="display-type max-w-3xl text-6xl font-bold leading-[.95] text-ink sm:text-8xl">
+          Let&apos;s make<br /><em className="font-normal text-coral">something useful.</em>
+        </h2>
+        <p className="mt-7 max-w-xl text-base leading-7 text-muted-foreground">
+          Whether you have a sharp idea, a messy problem, or just want to say hello — my inbox is open.
+        </p>
+        <a href="mailto:surajpanda2077@gmail.com" className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-bold text-white shadow-lg transition-transform hover:-translate-y-1 hover:bg-coral">
+          <Mail size={17} /> Send me a note <ArrowUpRight size={16} />
+        </a>
+        <p className="mt-4 font-mono text-sm tracking-wide text-muted-foreground" aria-label="Email address">
+          {EMAIL_DISPLAY}
+        </p>
+        <div className="mt-14 flex flex-wrap justify-center gap-x-8 gap-y-5">
+          {links.map(({ label, handle, href, icon: Icon }) => (
+            <a key={label} href={href} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 border-b border-ink/20 pb-1.5 text-left transition-colors hover:border-coral">
+              <span className="text-ink/70 group-hover:text-coral"><Icon size={16} /></span>
+              <span><span className="block text-sm font-bold text-ink">{label}</span><span className="font-mono text-[11px] text-muted-foreground">{handle}</span></span>
+              <ArrowUpRight size={14} className="text-muted-foreground group-hover:text-coral" />
             </a>
-
-            <div className="mt-2 flex items-center gap-2 text-sm text-gold/50">
-              <MapPin className="size-3.5" />
-              <span>Open to remote & on-site opportunities</span>
-            </div>
-          </div>
+          ))}
         </div>
-
-        <Separator className="mt-12 bg-gold/15" />
-
-        <footer className="flex flex-col items-center justify-between gap-3 py-8 text-sm text-gold/45 sm:flex-row">
-          <p>
-            © {new Date().getFullYear()} Suraj Panda. All rights reserved.
-          </p>
-          <p className="text-gold/35">Built with Next.js & shadcn/ui</p>
+        <footer className="mt-24 w-full border-t border-border py-7 text-xs text-muted-foreground">
+          <p>© {new Date().getFullYear()} Suraj Panda. Built with care.</p>
         </footer>
       </div>
     </section>

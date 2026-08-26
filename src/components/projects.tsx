@@ -1,133 +1,17 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, GitBranch } from "lucide-react";
+import { ArrowUpRight, GitBranch } from "lucide-react";
 
 const projects = [
-  {
-    title: "Seoye-chi",
-    description:
-      "A minimalist Korean calligraphy (서예) app — draw pressure-sensitive brush strokes on digital rice paper, right in your browser.",
-    tags: ["Next.js", "ReactJS", "Typescript", "TailwindCSS"],
-    liveUrl: "https://seoye-chi.vercel.app",
-    githubUrl: "https://github.com/Suraj370/seoye",
-  },
-  {
-    title: "Guardrailkit",
-    description:
-      " A guardrail for LLM apps (rule-based + LLM-classifier policies) paired with an adversarial-testing framework that attacks it directly, uncovering a real judge-hallucination bug through live campaign runs.",
-    tags: ["Python", "Pydantic", "OpenAI API", "Garak", "Nemo Guardrails"],
-    liveUrl: "https://github.com/Suraj370/GuardrailKit",
-    githubUrl: "https://github.com/Suraj370/GuardrailKit",
-  },
-  {
-    title: "Aven.",
-    description:
-      "A visually rich landing page for a luxury makeup brand, blending elegant typography, product storytelling, and a boutique-inspired feel to create a premium first impression.",
-    tags: ["Next.js", "TypeScript"],
-    liveUrl: "https://boutique-website-landing-page.vercel.app/",
-    githubUrl: "https://github.com/Suraj370/boutique-website-landing-page",
-  },
-  {
-    title: "Orbit Chat",
-    description:
-      "Real-time messaging app with typing indicators, media sharing, and end-to-end encrypted private rooms.",
-    tags: ["Next.js", "WebSockets", "Redis", "Auth"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
+  { title: "Seoye-chi", type: "Web experience · 2024", description: "A calm, pressure-sensitive brush experience that brings the rhythm of Korean calligraphy and rice paper to the browser.", tags: ["Next.js", "TypeScript", "Canvas"], color: "bg-[#dfeeff]", visual: "calligraphy", liveUrl: "https://seoye-chi.vercel.app", githubUrl: "https://github.com/Suraj370/seoye" },
+  { title: "GuardrailKit", type: "Developer tool · 2024", description: "Rules, classifiers, and adversarial testing in one toolkit for teams building safer applications with language models.", tags: ["Python", "OpenAI API", "Garak"], color: "bg-[#e9f3b4]", visual: "guardrail", liveUrl: "https://github.com/Suraj370/GuardrailKit", githubUrl: "https://github.com/Suraj370/GuardrailKit" },
+  { title: "Aven.", type: "Brand direction · 2024", description: "A visually rich storefront that pairs editorial typography with a soft, premium product story for a luxury beauty brand.", tags: ["Next.js", "UI design", "Art direction"], color: "bg-[#ffe2d9]", visual: "aven", liveUrl: "https://boutique-website-landing-page.vercel.app/", githubUrl: "https://github.com/Suraj370/boutique-website-landing-page" },
 ];
 
-export function Projects() {
-  return (
-    <section id="projects" className="relative px-4 py-24 sm:px-6">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-14 text-center">
-          <p className="mb-2 text-sm font-medium uppercase tracking-[0.25em] text-gold/60">
-            Portfolio
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight text-gold sm:text-4xl">
-            Featured Projects
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-gold/65">
-            A selection of work spanning full-stack products, polished
-            interfaces, and systems designed with craft in mind.
-          </p>
-        </div>
+function ProjectVisual({ kind, color }: { kind: string; color: string }) {
+  if (kind === "calligraphy") return <div className={"relative flex h-full min-h-[300px] items-center justify-center overflow-hidden rounded-2xl " + color}><div className="absolute left-8 top-8 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-ink/40">01 / Seoye</div><div className="absolute -right-8 -top-10 size-44 rounded-full border border-ink/10" /><div className="absolute -bottom-20 -left-10 size-64 rounded-full border border-ink/10" /><div className="relative rotate-[-7deg] font-serif text-[8rem] leading-none text-ink/80 sm:text-[10rem]">서예</div><div className="absolute bottom-8 right-8 rounded-full border border-ink/20 px-3 py-1 font-mono text-[10px] text-ink/50">digital rice paper</div></div>;
+  if (kind === "guardrail") return <div className={"relative min-h-[300px] overflow-hidden rounded-2xl " + color + " p-7"}><div className="flex justify-between font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-ink/45"><span>GuardrailKit</span><span>● live</span></div><div className="mt-12 rounded-xl border border-ink/15 bg-white/45 p-4 font-mono text-xs text-ink/70 shadow-sm"><p className="text-ink/40">campaign.run(</p><p className="pl-5 text-coral">&quot;prompt_injection&quot;</p><p className="text-ink/40">)</p><div className="my-4 h-px bg-ink/10" /><div className="flex items-center justify-between"><span>policy check</span><span className="rounded-full bg-ink px-2 py-1 text-[10px] text-white">PASSED</span></div></div><div className="absolute -bottom-16 -right-6 size-44 rounded-full border-[22px] border-ink/10" /></div>;
+  return <div className={"relative min-h-[300px] overflow-hidden rounded-2xl " + color + " p-7"}><div className="flex justify-between font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-ink/45"><span>Aven. / beauty</span><span>03</span></div><div className="absolute bottom-0 left-1/2 h-[82%] w-[58%] -translate-x-1/2 rounded-t-[12rem] bg-[#f7b3a4] shadow-[inset_20px_0_30px_rgba(255,255,255,.2)]" /><div className="absolute bottom-12 left-1/2 z-10 -translate-x-1/2 text-center"><div className="font-serif text-6xl italic text-ink/80">Aven.</div><div className="mt-2 font-mono text-[9px] uppercase tracking-[0.3em] text-ink/45">beauty, simply</div></div></div>;
+}
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          {projects.map((project) => (
-            <Card
-              key={project.title}
-              className="group border-gold/20 bg-card/80 transition-all duration-300 hover:border-gold/50 hover:shadow-[0_0_30px_rgba(212,175,55,0.08)]"
-            >
-              <CardHeader>
-                <div className="mb-3 h-1.5 w-12 rounded-full bg-gradient-to-r from-gold-dark via-gold to-gold-light transition-all duration-300 group-hover:w-20" />
-                <CardTitle className="text-xl text-gold group-hover:text-gold-light">
-                  {project.title}
-                </CardTitle>
-                <CardDescription className="text-gold/60">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="outline"
-                      className="border-gold/25 bg-gold/5 text-gold/80"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-              <CardFooter className="gap-3">
-                <Button
-                  size="sm"
-                  variant="outline"
-                  nativeButton={false}
-                  className="border-gold/30 text-gold hover:bg-gold/10 hover:text-gold-light"
-                  render={
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    />
-                  }
-                >
-                  <ExternalLink data-icon="inline-start" />
-                  Live Demo
-                </Button>
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  nativeButton={false}
-                  className="text-gold/70 hover:bg-gold/10 hover:text-gold"
-                  render={
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    />
-                  }
-                >
-                  <GitBranch data-icon="inline-start" />
-                  Code
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+export function Projects() {
+  return <section id="projects" className="section-rule px-5 py-24 lg:px-8"><div className="mx-auto max-w-6xl"><div className="mb-16 flex items-end justify-between gap-5"><div><p className="eyebrow mb-3 text-coral">Selected work</p><h2 className="display-type text-5xl font-bold text-ink sm:text-6xl">Things I&apos;ve<br /><em className="font-normal">made.</em></h2></div><span className="hidden font-mono text-xs text-muted-foreground sm:block">03 / 03 projects</span></div><div className="space-y-20">{projects.map((project, index) => <article key={project.title} className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16"><div className={index % 2 === 1 ? "lg:order-2" : ""}><ProjectVisual kind={project.visual} color={project.color} /></div><div className={index % 2 === 1 ? "lg:order-1" : ""}><p className="eyebrow text-coral">{project.type}</p><h3 className="display-type mt-4 text-5xl font-bold text-ink sm:text-6xl">{project.title}</h3><p className="mt-5 max-w-lg text-base leading-7 text-muted-foreground">{project.description}</p><div className="mt-6 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full bg-muted px-3 py-1.5 text-xs font-semibold text-ink">{tag}</span>)}</div><div className="mt-8 flex gap-5"><a href={project.liveUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm font-bold text-ink hover:text-coral">View project <ArrowUpRight size={15} /></a><a href={project.githubUrl} target="_blank" rel="noreferrer" aria-label={project.title + " source code"} className="inline-flex items-center gap-1.5 text-sm font-bold text-muted-foreground hover:text-ink"><GitBranch size={16} /> Source</a></div></div></article>)}</div></div></section>;
 }
