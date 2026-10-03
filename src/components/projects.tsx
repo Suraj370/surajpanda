@@ -1,17 +1,132 @@
-import { ArrowUpRight, GitBranch } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { Reveal } from "./reveal";
 
-const projects = [
-  { title: "Seoye-chi", type: "Web experience · 2024", description: "A calm, pressure-sensitive brush experience that brings the rhythm of Korean calligraphy and rice paper to the browser.", tags: ["Next.js", "TypeScript", "Canvas"], color: "bg-[#dfeeff]", visual: "calligraphy", liveUrl: "https://seoye-chi.vercel.app", githubUrl: "https://github.com/Suraj370/seoye" },
-  { title: "GuardrailKit", type: "Developer tool · 2024", description: "Rules, classifiers, and adversarial testing in one toolkit for teams building safer applications with language models.", tags: ["Python", "OpenAI API", "Garak"], color: "bg-[#e9f3b4]", visual: "guardrail", liveUrl: "https://github.com/Suraj370/GuardrailKit", githubUrl: "https://github.com/Suraj370/GuardrailKit" },
-  { title: "Aven.", type: "Brand direction · 2024", description: "A visually rich storefront that pairs editorial typography with a soft, premium product story for a luxury beauty brand.", tags: ["Next.js", "UI design", "Art direction"], color: "bg-[#ffe2d9]", visual: "aven", liveUrl: "https://boutique-website-landing-page.vercel.app/", githubUrl: "https://github.com/Suraj370/boutique-website-landing-page" },
+const featured = [
+  {
+    title: "SafeSQL Proxy",
+    kind: "Governed semantic layer · MCP gateway",
+    description:
+      "Sits between LLM agents and your warehouse so text-to-SQL stops producing wrong joins and fan-out inflation. Compiles requests into safe SQL while enforcing RBAC, masking and row-level security, with audit trails across Postgres, MySQL, Snowflake and Databricks.",
+    tags: ["Go", "MCP", "REST", "Postgres", "Snowflake"],
+    url: "https://github.com/Suraj370/SafeSQL-Proxy",
+    snippet: ["agent → revenue by region", "compile → fan-out safe SQL", "policy → mask(email) ok, rls ok"],
+  },
+  {
+    title: "Distributed Message Queue",
+    kind: "Fault-tolerant broker",
+    description:
+      "A Kafka-style queue with partitioned topics, a persistent write-ahead log, consumer groups with offset tracking, and a custom HTTP Raft implementation for leader election, replication and crash recovery. Observable with Prometheus and Grafana.",
+    tags: ["Java", "Spring Boot", "Raft", "Docker", "Testcontainers"],
+    url: "https://github.com/Suraj370/distributed-message-queue",
+    snippet: ["raft → elect leader (term 7)", "append → replicate to followers", "crash → recover from WAL"],
+  },
+  {
+    title: "ContractGuard",
+    kind: "AI contract analysis CLI",
+    description:
+      "Reads PDF and Word contracts, classifies them, and surfaces red flags, warnings, protections and missing clauses with a fairness score. Includes jurisdiction-aware statute checks, batch scans, version comparison and exports to Markdown, JSON, PDF and HTML.",
+    tags: ["Python", "Pydantic", "LLM APIs", "pdfplumber"],
+    url: "https://github.com/Suraj370/contractguard",
+    snippet: ["contractguard scan lease.pdf", "red flag → auto-renewal clause", "fairness score → see report"],
+  },
 ];
 
-function ProjectVisual({ kind, color }: { kind: string; color: string }) {
-  if (kind === "calligraphy") return <div className={"relative flex h-full min-h-[300px] items-center justify-center overflow-hidden rounded-2xl " + color}><div className="absolute left-8 top-8 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-ink/40">01 / Seoye</div><div className="absolute -right-8 -top-10 size-44 rounded-full border border-ink/10" /><div className="absolute -bottom-20 -left-10 size-64 rounded-full border border-ink/10" /><div className="relative rotate-[-7deg] font-serif text-[8rem] leading-none text-ink/80 sm:text-[10rem]">서예</div><div className="absolute bottom-8 right-8 rounded-full border border-ink/20 px-3 py-1 font-mono text-[10px] text-ink/50">digital rice paper</div></div>;
-  if (kind === "guardrail") return <div className={"relative min-h-[300px] overflow-hidden rounded-2xl " + color + " p-7"}><div className="flex justify-between font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-ink/45"><span>GuardrailKit</span><span>● live</span></div><div className="mt-12 rounded-xl border border-ink/15 bg-white/45 p-4 font-mono text-xs text-ink/70 shadow-sm"><p className="text-ink/40">campaign.run(</p><p className="pl-5 text-coral">&quot;prompt_injection&quot;</p><p className="text-ink/40">)</p><div className="my-4 h-px bg-ink/10" /><div className="flex items-center justify-between"><span>policy check</span><span className="rounded-full bg-ink px-2 py-1 text-[10px] text-white">PASSED</span></div></div><div className="absolute -bottom-16 -right-6 size-44 rounded-full border-[22px] border-ink/10" /></div>;
-  return <div className={"relative min-h-[300px] overflow-hidden rounded-2xl " + color + " p-7"}><div className="flex justify-between font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-ink/45"><span>Aven. / beauty</span><span>03</span></div><div className="absolute bottom-0 left-1/2 h-[82%] w-[58%] -translate-x-1/2 rounded-t-[12rem] bg-[#f7b3a4] shadow-[inset_20px_0_30px_rgba(255,255,255,.2)]" /><div className="absolute bottom-12 left-1/2 z-10 -translate-x-1/2 text-center"><div className="font-serif text-6xl italic text-ink/80">Aven.</div><div className="mt-2 font-mono text-[9px] uppercase tracking-[0.3em] text-ink/45">beauty, simply</div></div></div>;
-}
+const more = [
+  {
+    title: "GuardrailKit",
+    description:
+      "Rules, classifiers and adversarial testing in one toolkit for teams building safer language-model applications.",
+    url: "https://github.com/Suraj370/GuardrailKit",
+  },
+  {
+    title: "Seoye-chi",
+    description:
+      "A calm, pressure-sensitive brush experience that brings Korean calligraphy and rice paper to the browser.",
+    url: "https://seoye-chi.vercel.app",
+  },
+  {
+    title: "Aven.",
+    description:
+      "An editorial, soft-toned storefront for a luxury beauty brand, built around typography and product story.",
+    url: "https://boutique-website-landing-page.vercel.app/",
+  },
+];
 
 export function Projects() {
-  return <section id="projects" className="section-rule px-5 py-24 lg:px-8"><div className="mx-auto max-w-6xl"><div className="mb-16 flex items-end justify-between gap-5"><div><p className="eyebrow mb-3 text-coral">Selected work</p><h2 className="display-type text-5xl font-bold text-ink sm:text-6xl">Things I&apos;ve<br /><em className="font-normal">made.</em></h2></div><span className="hidden font-mono text-xs text-muted-foreground sm:block">03 / 03 projects</span></div><div className="space-y-20">{projects.map((project, index) => <article key={project.title} className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16"><div className={index % 2 === 1 ? "lg:order-2" : ""}><ProjectVisual kind={project.visual} color={project.color} /></div><div className={index % 2 === 1 ? "lg:order-1" : ""}><p className="eyebrow text-coral">{project.type}</p><h3 className="display-type mt-4 text-5xl font-bold text-ink sm:text-6xl">{project.title}</h3><p className="mt-5 max-w-lg text-base leading-7 text-muted-foreground">{project.description}</p><div className="mt-6 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full bg-muted px-3 py-1.5 text-xs font-semibold text-ink">{tag}</span>)}</div><div className="mt-8 flex gap-5"><a href={project.liveUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm font-bold text-ink hover:text-coral">View project <ArrowUpRight size={15} /></a><a href={project.githubUrl} target="_blank" rel="noreferrer" aria-label={project.title + " source code"} className="inline-flex items-center gap-1.5 text-sm font-bold text-muted-foreground hover:text-ink"><GitBranch size={16} /> Source</a></div></div></article>)}</div></div></section>;
+  return (
+    <section id="work" className="relative px-6 py-32">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <p className="eyebrow mb-4">Selected work</p>
+          <h2 className="serif max-w-2xl text-5xl font-light leading-[1.05] sm:text-6xl">
+            Systems, tools and <span className="italic text-amber">things</span> I&apos;ve shipped.
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 space-y-6">
+          {featured.map((p, i) => (
+            <Reveal key={p.title}>
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noreferrer"
+                className="card group grid gap-8 rounded-3xl p-6 sm:p-9 lg:grid-cols-[1.2fr_1fr]"
+              >
+                <div className="flex flex-col">
+                  <div className="flex items-center justify-between font-mono text-xs text-dim">
+                    <span>0{i + 1}</span>
+                    <ArrowUpRight
+                      size={22}
+                      className="transition-all group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-amber"
+                    />
+                  </div>
+                  <h3 className="serif mt-10 text-4xl font-light sm:text-5xl">{p.title}</h3>
+                  <p className="eyebrow mt-3 !text-violet">{p.kind}</p>
+                  <p className="mt-5 leading-7 text-dim">{p.description}</p>
+                  <ul className="mt-6 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <li key={t} className="rounded-full border border-line px-3 py-1 font-mono text-[11px] text-dim">
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="self-center rounded-2xl border border-line bg-surface p-5 font-mono text-[13px] leading-7 text-dim">
+                  <div className="mb-4 flex gap-1.5">
+                    <i className="size-2.5 rounded-full bg-[#ff6b6b]/70" />
+                    <i className="size-2.5 rounded-full bg-amber/70" />
+                    <i className="size-2.5 rounded-full bg-[#5fd38d]/70" />
+                  </div>
+                  {p.snippet.map((line) => (
+                    <p key={line}>
+                      <span className="text-amber">$</span> {line}
+                    </p>
+                  ))}
+                </div>
+              </a>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal className="mt-20">
+          <p className="eyebrow mb-6">More</p>
+          <div className="divide-y divide-line border-y border-line">
+            {more.map((p) => (
+              <a
+                key={p.title}
+                href={p.url}
+                target="_blank"
+                rel="noreferrer"
+                className="group grid items-center gap-2 py-7 transition-colors hover:text-amber sm:grid-cols-[1fr_2fr_auto] sm:gap-8"
+              >
+                <h3 className="serif text-3xl font-light">{p.title}</h3>
+                <p className="text-sm leading-6 text-dim">{p.description}</p>
+                <ArrowUpRight className="hidden transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 sm:block" />
+              </a>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
 }

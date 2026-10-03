@@ -1,9 +1,33 @@
-"use client";
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
-const navLinks = [{ href: "#home", label: "About" }, { href: "#skills", label: "Skills" }, { href: "#projects", label: "Projects" }, { href: "#contact", label: "Connect" }];
+const links = [
+  { href: "#work", label: "Work" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
+];
+
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false); const [open, setOpen] = useState(false);
-  useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 16); window.addEventListener("scroll", onScroll, { passive: true }); return () => window.removeEventListener("scroll", onScroll); }, []);
-  return <header className={"fixed top-0 z-50 w-full transition-all " + (scrolled ? "border-b border-border bg-background/90 backdrop-blur-md" : "bg-transparent")}><nav className="mx-auto flex h-[76px] max-w-6xl items-center justify-between px-5 lg:px-8"><a href="#home" className="display-type text-2xl font-bold text-ink">SP<span className="text-coral">.</span></a><div className="hidden items-center gap-8 md:flex">{navLinks.map((link) => <a key={link.href} href={link.href} className="text-sm font-semibold text-muted-foreground transition-colors hover:text-ink">{link.label}</a>)}<a href="#contact" className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5">Let&apos;s talk <span className="ml-1 text-coral">↗</span></a></div><button className="rounded-full p-2 text-ink md:hidden" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"}>{open ? <X /> : <Menu />}</button></nav>{open && <div className="border-t border-border bg-background px-5 py-4 md:hidden"><div className="flex flex-col gap-3">{navLinks.map((link) => <a key={link.href} href={link.href} onClick={() => setOpen(false)} className="py-2 font-semibold text-ink">{link.label}</a>)}</div></div>}</header>;
+  return (
+    <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
+      <nav className="flex items-center gap-1 rounded-full border border-line bg-bg/70 py-1.5 pl-5 pr-1.5 backdrop-blur-xl">
+        <a href="#top" className="serif mr-3 text-lg font-semibold">
+          sp<span className="text-amber">.</span>
+        </a>
+        {links.map((l) => (
+          <a
+            key={l.href}
+            href={l.href}
+            className="hidden rounded-full px-4 py-2 text-sm text-dim transition-colors hover:text-ink sm:block"
+          >
+            {l.label}
+          </a>
+        ))}
+        <a
+          href="#contact"
+          className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-bg transition-colors hover:bg-amber"
+        >
+          Say hello
+        </a>
+      </nav>
+    </header>
+  );
 }

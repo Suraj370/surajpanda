@@ -1,3 +1,40 @@
-import { Code2, Database, Palette } from "lucide-react";
-const skillGroups = [{ icon: Code2, number: "01", title: "Build", description: "Interfaces that feel fast, natural, and a little bit delightful.", skills: ["Next.js", "React", "TypeScript", "Tailwind"] }, { icon: Database, number: "02", title: "Connect", description: "Reliable systems that turn good ideas into products people can use.", skills: ["Node.js", "Python", "PostgreSQL", "REST APIs"] }, { icon: Palette, number: "03", title: "Shape", description: "Visual systems with enough personality to be remembered.", skills: ["Figma", "Design systems", "Prototyping", "Motion"] }];
-export function Skills() { return <section id="skills" className="section-rule px-5 py-24 lg:px-8"><div className="mx-auto max-w-6xl"><div className="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p className="eyebrow mb-3 text-coral">How I work</p><h2 className="display-type text-5xl font-bold text-ink sm:text-6xl">A practical<br /><span className="text-muted-foreground">creative toolkit.</span></h2></div><p className="max-w-sm text-base leading-7 text-muted-foreground">The sweet spot is where thoughtful design meets clean engineering. That&apos;s where I like to work.</p></div><div className="grid gap-4 md:grid-cols-3">{skillGroups.map(({ icon: Icon, number, title, description, skills }) => <div key={title} className="paper-card rounded-2xl p-6 transition-all duration-300"><div className="mb-12 flex items-start justify-between"><div className="flex size-12 items-center justify-center rounded-xl bg-lime text-ink"><Icon size={22} /></div><span className="font-mono text-xs text-muted-foreground">{number}</span></div><h3 className="display-type text-3xl font-bold text-ink">{title}</h3><p className="mt-3 min-h-14 text-sm leading-6 text-muted-foreground">{description}</p><div className="mt-6 flex flex-wrap gap-2">{skills.map((skill) => <span key={skill} className="rounded-full bg-muted px-3 py-1.5 text-xs font-semibold text-ink">{skill}</span>)}</div></div>)}</div></div></section>; }
+import { Reveal } from "./reveal";
+
+const groups = [
+  { title: "Languages", items: ["Go", "Java", "Python", "TypeScript"] },
+  { title: "Backend & data", items: ["Spring Boot", "Node.js", "PostgreSQL", "REST", "MCP"] },
+  { title: "Infrastructure", items: ["Docker", "Raft consensus", "Prometheus", "Grafana", "Testcontainers"] },
+  { title: "Frontend & design", items: ["Next.js", "React", "Tailwind", "Figma"] },
+  { title: "AI", items: ["LLM APIs", "Guardrails", "Prompt-injection testing", "Text-to-SQL"] },
+];
+
+export function Skills() {
+  return (
+    <section id="skills" className="relative px-6 py-32">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <p className="eyebrow mb-4">Toolkit</p>
+          <h2 className="serif max-w-2xl text-5xl font-light leading-[1.05] sm:text-6xl">
+            What I reach for <span className="italic text-amber">daily.</span>
+          </h2>
+        </Reveal>
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {groups.map((g, i) => (
+            <Reveal key={g.title} delay={i * 70}>
+              <div className="card h-full rounded-2xl p-7">
+                <h3 className="serif text-2xl">{g.title}</h3>
+                <ul className="mt-5 flex flex-wrap gap-2">
+                  {g.items.map((s) => (
+                    <li key={s} className="rounded-full bg-ink/[0.06] px-3 py-1.5 text-sm text-ink/75">
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
