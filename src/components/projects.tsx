@@ -59,7 +59,7 @@ export function Projects() {
         <Reveal>
           <p className="eyebrow mb-4">Selected work</p>
           <h2 className="serif max-w-2xl text-5xl font-light leading-[1.05] sm:text-6xl">
-            Systems, tools and <span className="italic text-amber">things</span> I&apos;ve shipped.
+            Systems, tools and <span className="italic text-clay">things</span> I&apos;ve shipped.
           </h2>
         </Reveal>
 
@@ -70,18 +70,20 @@ export function Projects() {
                 href={p.url}
                 target="_blank"
                 rel="noreferrer"
-                className="card group grid gap-8 rounded-3xl p-6 sm:p-9 lg:grid-cols-[1.2fr_1fr]"
+                className="spot group grid gap-8 rounded-[2rem] p-6 sm:p-9 lg:grid-cols-[1.2fr_1fr]"
               >
                 <div className="flex flex-col">
                   <div className="flex items-center justify-between font-mono text-xs text-dim">
                     <span>0{i + 1}</span>
                     <ArrowUpRight
                       size={22}
-                      className="transition-all group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-amber"
+                      className="transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-clay"
                     />
                   </div>
-                  <h3 className="serif mt-10 text-4xl font-light sm:text-5xl">{p.title}</h3>
-                  <p className="eyebrow mt-3 !text-violet">{p.kind}</p>
+                  <h3 className="serif mt-10 text-4xl font-light sm:text-5xl">
+                    {p.title}
+                  </h3>
+                  <p className="eyebrow mt-3 !text-dusk">{p.kind}</p>
                   <p className="mt-5 leading-7 text-dim">{p.description}</p>
                   <ul className="mt-6 flex flex-wrap gap-2">
                     {p.tags.map((t) => (
@@ -91,15 +93,15 @@ export function Projects() {
                     ))}
                   </ul>
                 </div>
-                <div className="self-center rounded-2xl border border-line bg-surface p-5 font-mono text-[13px] leading-7 text-dim">
+                <div className="self-center rounded-2xl border border-line bg-surface/90 p-5 font-mono text-[13px] leading-7 text-dim">
                   <div className="mb-4 flex gap-1.5">
-                    <i className="size-2.5 rounded-full bg-[#ff6b6b]/70" />
-                    <i className="size-2.5 rounded-full bg-amber/70" />
-                    <i className="size-2.5 rounded-full bg-[#5fd38d]/70" />
+                    <i className="size-2.5 rounded-full bg-clay/60" />
+                    <i className="size-2.5 rounded-full bg-[#e0c28a]/80" />
+                    <i className="size-2.5 rounded-full bg-sage/70" />
                   </div>
                   {p.snippet.map((line) => (
                     <p key={line}>
-                      <span className="text-amber">$</span> {line}
+                      <span className="text-clay">$</span> {line}
                     </p>
                   ))}
                 </div>
@@ -117,11 +119,11 @@ export function Projects() {
                 href={p.url}
                 target="_blank"
                 rel="noreferrer"
-                className="group grid items-center gap-2 py-7 transition-colors hover:text-amber sm:grid-cols-[1fr_2fr_auto] sm:gap-8"
+                className="group grid items-center gap-2 py-7 transition-all duration-500 hover:bg-mist/25 hover:pl-4 sm:grid-cols-[1fr_2fr_auto] sm:gap-8"
               >
-                <h3 className="serif text-3xl font-light">{p.title}</h3>
+                <h3 className="serif text-3xl font-light transition-colors group-hover:text-clay">{p.title}</h3>
                 <p className="text-sm leading-6 text-dim">{p.description}</p>
-                <ArrowUpRight className="hidden transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 sm:block" />
+                <ArrowUpRight className="mr-2 hidden transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 sm:block" />
               </a>
             ))}
           </div>
