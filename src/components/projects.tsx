@@ -29,6 +29,15 @@ const featured = [
     url: "https://github.com/Suraj370/contractguard",
     snippet: ["contractguard scan lease.pdf", "red flag → auto-renewal clause", "fairness score → see report"],
   },
+  {
+    title: "Podweave",
+    kind: "DAG workflow orchestrator",
+    description:
+      "A compact orchestration engine that runs a DAG of shell commands across a pre-warmed pool of Kubernetes pods. Validates workflows for cycles and dangling dependencies, dispatches steps in parallel, monitors pod liveness with heartbeats, and propagates failures to dependents while streaming results over Redis.",
+    tags: ["TypeScript", "Bun", "Express", "Kubernetes", "Redis"],
+    url: "https://github.com/Suraj370/Podweave",
+    snippet: ["submit → workflow (4 steps, DAG ok)", "dispatch → parallel to pod pool", "heartbeat lost → fail dependents"],
+  },
 ];
 
 const more = [
