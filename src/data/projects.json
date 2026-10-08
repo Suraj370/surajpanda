@@ -1,0 +1,53 @@
+{
+  "featured": [
+    {
+      "title": "SafeSQL Proxy",
+      "kind": "Governed semantic layer · MCP gateway",
+      "description": "Sits between LLM agents and your warehouse so text-to-SQL stops producing wrong joins and fan-out inflation. Compiles requests into safe SQL while enforcing RBAC, masking and row-level security, with audit trails across Postgres, MySQL, Snowflake and Databricks.",
+      "tags": ["Go", "MCP", "REST", "Postgres", "Snowflake"],
+      "url": "https://github.com/Suraj370/SafeSQL-Proxy",
+      "snippet": ["agent → revenue by region", "compile → fan-out safe SQL", "policy → mask(email) ok, rls ok"]
+    },
+    {
+      "title": "Distributed Message Queue",
+      "kind": "Fault-tolerant broker",
+      "description": "A Kafka-style queue with partitioned topics, a persistent write-ahead log, consumer groups with offset tracking, and a custom HTTP Raft implementation for leader election, replication and crash recovery. Observable with Prometheus and Grafana.",
+      "tags": ["Java", "Spring Boot", "Raft", "Docker", "Testcontainers"],
+      "url": "https://github.com/Suraj370/distributed-message-queue",
+      "snippet": ["raft → elect leader (term 7)", "append → replicate to followers", "crash → recover from WAL"]
+    },
+    {
+      "title": "ContractGuard",
+      "kind": "AI contract analysis CLI",
+      "description": "Reads PDF and Word contracts, classifies them, and surfaces red flags, warnings, protections and missing clauses with a fairness score. Includes jurisdiction-aware statute checks, batch scans, version comparison and exports to Markdown, JSON, PDF and HTML.",
+      "tags": ["Python", "Pydantic", "LLM APIs", "pdfplumber"],
+      "url": "https://github.com/Suraj370/contractguard",
+      "snippet": ["contractguard scan lease.pdf", "red flag → auto-renewal clause", "fairness score → see report"]
+    },
+    {
+      "title": "Podweave",
+      "kind": "DAG workflow orchestrator",
+      "description": "A compact orchestration engine that runs a DAG of shell commands across a pre-warmed pool of Kubernetes pods. Validates workflows for cycles and dangling dependencies, dispatches steps in parallel, monitors pod liveness with heartbeats, and propagates failures to dependents while streaming results over Redis.",
+      "tags": ["TypeScript", "Bun", "Express", "Kubernetes", "Redis"],
+      "url": "https://github.com/Suraj370/Podweave",
+      "snippet": ["submit → workflow (4 steps, DAG ok)", "dispatch → parallel to pod pool", "heartbeat lost → fail dependents"]
+    }
+  ],
+  "more": [
+    {
+      "title": "GuardrailKit",
+      "description": "Rules, classifiers and adversarial testing in one toolkit for teams building safer language-model applications.",
+      "url": "https://github.com/Suraj370/GuardrailKit"
+    },
+    {
+      "title": "Seoye-chi",
+      "description": "A calm, pressure-sensitive brush experience that brings Korean calligraphy and rice paper to the browser.",
+      "url": "https://seoye-chi.vercel.app"
+    },
+    {
+      "title": "Aven.",
+      "description": "An editorial, soft-toned storefront for a luxury beauty brand, built around typography and product story.",
+      "url": "https://boutique-website-landing-page.vercel.app/"
+    }
+  ]
+}

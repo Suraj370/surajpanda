@@ -1,17 +1,7 @@
 import { Reveal } from "./reveal";
+import experience from "@/data/experience.json";
 
-const roles = [
-  {
-    title: "Full-stack Developer",
-    company: "AIMERZ",
-    type: "Internship",
-    dates: "Apr 2025 — Jul 2025 · 4 mos",
-    location: "Bengaluru, Karnataka, India · Remote",
-    summary:
-      "Architected and built a type-safe savings platform from zero, enabling users to create and manage multiple savings goals with automated deposit allocation.",
-    skills: ["Front-End Development", "Agile Methodologies"],
-  },
-];
+const roles = experience;
 
 export function Experience() {
   return (

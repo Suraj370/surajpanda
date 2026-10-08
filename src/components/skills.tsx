@@ -1,12 +1,7 @@
 import { Reveal } from "./reveal";
+import skills from "@/data/skills.json";
 
-const groups = [
-  { title: "Languages", items: ["Go", "Java", "Python", "TypeScript"] },
-  { title: "Backend & data", items: ["Spring Boot", "Node.js", "PostgreSQL", "REST", "MCP"] },
-  { title: "Infrastructure", items: ["Docker", "Raft consensus", "Prometheus", "Grafana", "Testcontainers"] },
-  { title: "Frontend & design", items: ["Next.js", "React", "Tailwind", "Figma"] },
-  { title: "AI", items: ["LLM APIs", "Guardrails", "Prompt-injection testing", "Text-to-SQL"] },
-];
+const groups = skills;
 
 const drift = groups.flatMap((g) => g.items);
 

@@ -1,12 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "./reveal";
+import contact from "@/data/contact.json";
 import { Embers } from "./embers";
 
-const links = [
-  { label: "GitHub", handle: "Suraj370", href: "https://github.com/Suraj370" },
-  { label: "LinkedIn", handle: "panda-suraj", href: "https://www.linkedin.com/in/panda-suraj/" },
-  { label: "X", handle: "@surajpanda2077", href: "https://x.com/surajpanda2077" },
-];
+const { email, links } = contact;
 
 export function Contact() {
   return (
@@ -24,10 +21,10 @@ export function Contact() {
             <span className="italic text-clay">something good.</span>
           </h2>
           <a
-            href="mailto:surajpanda2077@gmail.com"
+            href={`mailto:${email}`}
             className="mt-12 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-4 font-medium text-bg transition-all duration-500 hover:gap-4 hover:bg-sage"
           >
-            surajpanda2077@gmail.com <ArrowUpRight size={18} />
+            {email} <ArrowUpRight size={18} />
           </a>
         </Reveal>
         <div className="mt-20 grid gap-4 sm:grid-cols-3">
