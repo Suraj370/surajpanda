@@ -37,23 +37,6 @@
       ]
     },
     {
-      "title": "ContractGuard",
-      "kind": "AI contract analysis CLI",
-      "description": "Reads PDF and Word contracts, classifies them, and surfaces red flags, warnings, protections and missing clauses with a fairness score. Includes jurisdiction-aware statute checks, batch scans, version comparison and exports to Markdown, JSON, PDF and HTML.",
-      "tags": [
-        "Python",
-        "Pydantic",
-        "LLM APIs",
-        "pdfplumber"
-      ],
-      "url": "https://github.com/Suraj370/contractguard",
-      "snippet": [
-        "contractguard scan lease.pdf",
-        "red flag → auto-renewal clause",
-        "fairness score → see report"
-      ]
-    },
-    {
       "title": "Podweave",
       "kind": "DAG workflow orchestrator",
       "description": "A compact orchestration engine that runs a DAG of shell commands across a pre-warmed pool of Kubernetes pods. Validates workflows for cycles and dangling dependencies, dispatches steps in parallel, monitors pod liveness with heartbeats, and propagates failures to dependents while streaming results over Redis.",
