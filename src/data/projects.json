@@ -1,6 +1,23 @@
 {
   "featured": [
     {
+      "title": "Inspect AI (UK AISI)",
+      "kind": "Open-source contribution · merged PR",
+      "description": "Fixed a bug in UK AISI's LLM evaluation framework where the computer-use tool checked model clicks against the native screen size instead of the downscaled size shown to the model, so out-of-range clicks were silently clamped to the screen edge. Added bounds checks to every pointer action and returned bad coordinates to the model as retryable tool errors, with 30+ regression tests across six resolutions.",
+      "tags": [
+        "Python",
+        "pytest",
+        "asyncio",
+        "X11"
+      ],
+      "url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/5927",
+      "snippet": [
+        "click [1800, 100] → was clamped to screen edge",
+        "validate → out of bounds for 1366x768",
+        "tool error → model retries the click"
+      ]
+    },
+    {
       "title": "SafeSQL Proxy",
       "kind": "Governed semantic layer · MCP gateway",
       "description": "Sits between LLM agents and your warehouse so text-to-SQL stops producing wrong joins and fan-out inflation. Compiles requests into safe SQL while enforcing RBAC, masking and row-level security, with audit trails across Postgres, MySQL, Snowflake and Databricks.",
@@ -52,23 +69,6 @@
         "submit → workflow (4 steps, DAG ok)",
         "dispatch → parallel to pod pool",
         "heartbeat lost → fail dependents"
-      ]
-    },
-    {
-      "title": "Inspect AI (UK AISI)",
-      "kind": "Open-source contribution · merged PR",
-      "description": "Fixed a bug in UK AISI's LLM evaluation framework where the computer-use tool checked model clicks against the native screen size instead of the downscaled size shown to the model, so out-of-range clicks were silently clamped to the screen edge. Added bounds checks to every pointer action and returned bad coordinates to the model as retryable tool errors, with 30+ regression tests across six resolutions.",
-      "tags": [
-        "Python",
-        "pytest",
-        "asyncio",
-        "X11"
-      ],
-      "url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/5927",
-      "snippet": [
-        "click [1800, 100] → was clamped to screen edge",
-        "validate → out of bounds for 1366x768",
-        "tool error → model retries the click"
       ]
     }
   ],
