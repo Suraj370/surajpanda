@@ -1,32 +1,23 @@
-const links = [
-  { href: "#work", label: "Work" },
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
-];
+import { NavLinks } from "./nav-links";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Navbar() {
   return (
-    <header className="fixed inset-x-0 top-5 z-50 flex justify-center px-4">
-      <nav className="flex items-center gap-1 rounded-full border border-line bg-surface/60 py-1.5 pl-5 pr-1.5 shadow-[0_10px_40px_-20px_rgba(31,44,43,.4)] backdrop-blur-xl">
-        <a href="#top" className="serif mr-3 text-lg font-medium">
-          sp<span className="text-clay">.</span>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-bg/80 backdrop-blur-md">
+      <nav className="mx-auto grid h-16 max-w-[88rem] grid-cols-[1fr_auto_1fr] items-center px-6 sm:px-10">
+        <a href="#top" className="justify-self-start text-lg font-semibold tracking-tight">
+          S<span className="text-clay">/</span>P
         </a>
-        {links.map((l) => (
+        <NavLinks />
+        <div className="col-start-3 flex items-center justify-self-end gap-2 sm:gap-4">
+          <ThemeToggle />
           <a
-            key={l.href}
-            href={l.href}
-            className="hidden rounded-full px-4 py-2 text-sm text-dim transition-colors hover:bg-mist/40 hover:text-ink sm:block"
+            href="#contact"
+            className="border-b border-clay pb-1 text-[11px] font-medium uppercase tracking-[0.2em] text-clay transition-colors hover:text-ink"
           >
-            {l.label}
+            Say hello
           </a>
-        ))}
-        <a
-          href="#contact"
-          className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-bg transition-colors hover:bg-sage"
-        >
-          Say hello
-        </a>
+        </div>
       </nav>
     </header>
   );

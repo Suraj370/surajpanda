@@ -1,68 +1,51 @@
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "./reveal";
+import { SplitText } from "./split-text";
 import projects from "@/data/projects.json";
 
 const { featured, more } = projects;
 
 export function Projects() {
   return (
-    <section id="work" className="relative px-6 py-32">
-      <div className="mx-auto max-w-6xl">
+    <section id="work" className="relative py-32">
+      <div className="mx-auto max-w-[88rem] px-6 sm:px-10">
         <Reveal>
           <p className="eyebrow mb-4">Selected work</p>
-          <h2 className="serif max-w-2xl text-5xl font-light leading-[1.05] sm:text-6xl">
-            Systems, tools and <span className="italic text-clay">things</span> I&apos;ve shipped.
+          <h2 className="serif outline-title max-w-6xl text-[clamp(2.5rem,6vw,5.5rem)]">
+            <SplitText text="Systems, tools and things I've shipped." />
           </h2>
         </Reveal>
 
-        <div className="mt-16 space-y-6">
+        <ol className="mt-20 border-t border-line">
           {featured.map((p, i) => (
-            <Reveal key={p.title}>
-              <a
-                href={p.url}
-                target="_blank"
-                rel="noreferrer"
-                className="spot group grid gap-8 rounded-[2rem] p-6 sm:p-9 lg:grid-cols-[1.2fr_1fr]"
-              >
-                <div className="flex flex-col">
-                  <div className="flex items-center justify-between font-mono text-xs text-dim">
-                    <span>0{i + 1}</span>
-                    <ArrowUpRight
-                      size={22}
-                      className="transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-clay"
-                    />
-                  </div>
-                  <h3 className="serif mt-10 text-4xl font-light sm:text-5xl">
-                    {p.title}
-                  </h3>
-                  <p className="eyebrow mt-3 !text-dusk">{p.kind}</p>
-                  <p className="mt-5 leading-7 text-dim">{p.description}</p>
-                  <ul className="mt-6 flex flex-wrap gap-2">
-                    {p.tags.map((t) => (
-                      <li key={t} className="rounded-full border border-line px-3 py-1 font-mono text-[11px] text-dim">
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="self-center rounded-2xl border border-line bg-surface/90 p-5 font-mono text-[13px] leading-7 text-dim">
-                  <div className="mb-4 flex gap-1.5">
-                    <i className="size-2.5 rounded-full bg-clay/60" />
-                    <i className="size-2.5 rounded-full bg-[#e0c28a]/80" />
-                    <i className="size-2.5 rounded-full bg-sage/70" />
-                  </div>
-                  {p.snippet.map((line) => (
-                    <p key={line}>
-                      <span className="text-clay">$</span> {line}
-                    </p>
-                  ))}
-                </div>
-              </a>
-            </Reveal>
-          ))}
-        </div>
+            <li key={p.title} className="border-b border-line">
+              <Reveal>
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="work-row group grid gap-x-10 gap-y-6 py-12 lg:grid-cols-[4rem_1.15fr_1fr] lg:py-16"
+                >
+                  <span className="font-mono text-xs text-dim lg:pt-4">0{i + 1}</span>
 
-        <Reveal className="mt-20">
+                  <h3 className="serif work-title text-[clamp(2.25rem,5vw,4.75rem)]">{p.title}</h3>
+
+                  <div className="max-w-xl lg:pt-3">
+                    <p className="eyebrow !text-clay">{p.kind}</p>
+                    <p className="mt-4 text-base leading-7 text-dim">{p.description}</p>
+                    <p className="mt-5 font-mono text-xs text-dim">{p.tags.join("  /  ")}</p>
+                    <span className="mt-6 inline-flex items-center gap-1.5 border-b border-ink pb-1 text-[11px] font-medium uppercase tracking-[0.2em]">
+                      View project
+                      <ArrowUpRight size={14} className="transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
+                </a>
+              </Reveal>
+            </li>
+          ))}
+        </ol>
+
+        <div className="mt-24">
           <p className="eyebrow mb-6">More</p>
           <div className="divide-y divide-line border-y border-line">
             {more.map((p) => (
@@ -71,15 +54,21 @@ export function Projects() {
                 href={p.url}
                 target="_blank"
                 rel="noreferrer"
-                className="group grid items-center gap-2 py-7 transition-all duration-500 hover:bg-mist/25 hover:pl-4 sm:grid-cols-[1fr_2fr_auto] sm:gap-8"
+                className="row group relative grid items-center gap-2 overflow-hidden px-2 py-7 sm:grid-cols-[1fr_2fr_auto] sm:gap-8"
               >
-                <h3 className="serif text-3xl font-light transition-colors group-hover:text-clay">{p.title}</h3>
-                <p className="text-sm leading-6 text-dim">{p.description}</p>
-                <ArrowUpRight className="mr-2 hidden transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 sm:block" />
+                <span className="row-fill absolute inset-0 bg-ink" aria-hidden />
+                <h3 className="serif relative text-3xl sm:text-4xl">
+                  <span className="roll">
+                    <span>{p.title}</span>
+                    <span aria-hidden>{p.title}</span>
+                  </span>
+                </h3>
+                <p className="row-copy relative text-sm leading-6 text-dim">{p.description}</p>
+                <ArrowUpRight className="row-copy relative mr-2 hidden transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 sm:block" />
               </a>
             ))}
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

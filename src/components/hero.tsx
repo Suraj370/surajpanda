@@ -1,68 +1,82 @@
 import { ArrowDown } from "lucide-react";
 import { Rotator } from "./rotator";
-import { AsciiOrb } from "./ascii-orb";
+import { SplitText } from "./split-text";
+import { WeightText } from "./weight-text";
+import { MagneticLink } from "./magnetic-link";
 
+const ticker = [
+  "Distributed systems",
+  "LLM safety",
+  "Go",
+  "Raft",
+  "Java",
+  "Python",
+  "TypeScript",
+  "Kubernetes",
+  "Text-to-SQL",
+  "MCP",
+];
+
+const d = (n: number) => ({ "--d": n }) as React.CSSProperties;
 
 export function Hero() {
   return (
-    <section id="top" className="relative flex min-h-screen items-center overflow-hidden px-6">
-      <div className="glow drift left-[-12%] top-[8%] size-[520px] bg-mist/60" />
-      <div
-        className="glow drift bottom-[-15%] right-[-8%] size-[560px] bg-dusk/25"
-        style={{ animationDelay: "-9s" }}
-      />
+    <section id="top" className="relative flex min-h-screen flex-col overflow-hidden">
+      <div className="hero-out relative z-10 mx-auto flex w-full max-w-[88rem] flex-1 flex-col justify-between px-6 pb-8 pt-28 sm:px-10">
+        <div className="enter flex items-center justify-between" style={d(0)}>
+          <p className="eyebrow flex items-center gap-3 !text-ink">
+            <span className="live-dot" aria-hidden /> Open to work
+          </p>
+          <p className="eyebrow hidden sm:block">Backend · AI safety · Interfaces</p>
+        </div>
 
-      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 pt-24 lg:grid-cols-[1.3fr_1fr]">
-        <div>
-          <p className="eyebrow mb-8 flex items-center gap-3">
-            <span className="h-px w-10 bg-sage" /> Software engineer · open to work
-          </p>
-          <h1 className="serif text-[clamp(3.5rem,9vw,8rem)] font-light leading-[0.92]">
-            Suraj
-            <br />
-            <span className="italic text-clay">Panda</span>
-          </h1>
-          <p className="serif mt-8 text-2xl font-light text-ink/80 sm:text-3xl">
-            I make{" "}
-            <Rotator words={["dependable backends", "safer AI", "calm interfaces", "distributed systems"]} />.
-          </p>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-dim">
-            I build dependable backend systems, safety tooling for AI, and interfaces that feel
-            considered. Currently into distributed systems and making LLMs behave.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <a
+        <h1 className="serif my-6 text-[clamp(5rem,min(24vw,28vh),18rem)]" aria-label="Suraj Panda">
+          <WeightText text="Suraj" />
+          <br />
+          <SplitText text="Panda" load start={5} className="text-clay" />
+        </h1>
+
+        <div className="grid items-end gap-10 lg:grid-cols-[1.4fr_1fr]">
+          <div>
+            <p className="serif enter text-2xl sm:text-4xl" style={d(5)}>
+              I make <Rotator words={["dependable backends", "safer AI", "calm interfaces", "distributed systems"]} />.
+            </p>
+            <p className="enter mt-5 max-w-[58ch] text-dim" style={d(6)}>
+              I build dependable backend systems, safety tooling for AI, and interfaces that feel
+              considered. Currently into distributed systems and making LLMs behave.
+            </p>
+          </div>
+          <div className="enter flex flex-wrap items-center gap-3 lg:justify-end" style={d(7)}>
+            <MagneticLink
               href="#work"
-              className="rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-bg transition-colors hover:bg-sage"
+              className="rounded-full bg-ink px-7 py-4 text-sm font-medium text-bg transition-colors hover:bg-clay"
             >
               Explore the work
-            </a>
-            <a
+            </MagneticLink>
+            <MagneticLink
               href="https://github.com/Suraj370"
               target="_blank"
               rel="noreferrer"
-              className="rounded-full border border-line px-6 py-3.5 text-sm font-medium transition-colors hover:border-sage hover:bg-mist/40"
+              className="rounded-full border border-line px-7 py-4 text-sm font-medium transition-colors hover:border-clay"
             >
               GitHub ↗
+            </MagneticLink>
+            <a href="#work" aria-label="Scroll to work" className="bob ml-2 hidden text-dim transition-colors hover:text-clay lg:block">
+              <ArrowDown size={20} />
             </a>
           </div>
         </div>
-
-        {/* ASCII-shaded orb */}
-        <div className="relative mx-auto hidden w-full max-w-[520px] lg:block">
-          <div className="glow absolute inset-[15%] bg-mist/70" />
-          <AsciiOrb className="relative aspect-[2/1] w-full" />
-          <p className="eyebrow mt-3 text-center text-dim!">move your cursor · it listens</p>
-        </div>
       </div>
 
-      <a
-        href="#work"
-        aria-label="Scroll to work"
-        className="bob absolute bottom-8 left-1/2 text-dim transition-colors hover:text-sage"
-      >
-        <ArrowDown size={20} />
-      </a>
+      <div className="marquee-wrap enter relative z-10 border-y border-line py-3" style={d(10)} aria-hidden>
+        <div className="marquee flex w-max gap-8 whitespace-nowrap font-mono text-xs uppercase tracking-[0.18em] text-dim">
+          {[...ticker, ...ticker, ...ticker, ...ticker].map((t, i) => (
+            <span key={i} className="flex items-center gap-8">
+              {t} <span className="size-1 rounded-full bg-clay" />
+            </span>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

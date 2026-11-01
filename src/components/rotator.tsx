@@ -22,11 +22,11 @@ export function Rotator({ words }: { words: string[] }) {
 
   return (
     <span
-      className="serif inline-block italic text-clay transition-all duration-500"
+      className="inline-block text-clay transition-all duration-500"
       style={{
         opacity: shown ? 1 : 0,
         transform: shown ? "none" : "translateY(8px)",
-        filter: shown ? "none" : "blur(4px)",
+       
       }}
     >
       {words[i]}

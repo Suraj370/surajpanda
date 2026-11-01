@@ -1,31 +1,29 @@
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "./reveal";
 import contact from "@/data/contact.json";
-import { Embers } from "./embers";
+import { SplitText } from "./split-text";
+import { MagneticLink } from "./magnetic-link";
 
 const { email, links } = contact;
 
 export function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden px-6 pb-10 pt-32">
-      <div className="glow drift left-1/2 top-10 size-[560px] -translate-x-1/2 bg-mist/60" />
-      <div className="glow drift right-[-10%] top-[30%] size-[380px] bg-clay/15" style={{ animationDelay: "-8s" }} />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-clay/20 via-clay/5 to-transparent" />
-      <Embers className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 w-full" />
       <div className="relative mx-auto max-w-6xl">
         <Reveal>
           <p className="eyebrow mb-6">Contact</p>
-          <h2 className="serif text-[clamp(3rem,9vw,8rem)] font-light leading-[0.95]">
-            Let&apos;s build
+          <h2 className="serif text-[clamp(3.25rem,11vw,10rem)]">
+            <SplitText text="Let's build" />
             <br />
-            <span className="italic text-clay">something good.</span>
+            <SplitText text="something good." start={2} className="text-clay" />
           </h2>
-          <a
+          <MagneticLink
             href={`mailto:${email}`}
-            className="mt-12 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-4 font-medium text-bg transition-all duration-500 hover:gap-4 hover:bg-sage"
+            strength={0.18}
+            className="mt-12 !inline-flex items-center gap-2 rounded-full bg-ink px-7 py-4 font-medium text-bg hover:gap-4 hover:bg-sage"
           >
             {email} <ArrowUpRight size={18} />
-          </a>
+          </MagneticLink>
         </Reveal>
         <div className="mt-20 grid gap-4 sm:grid-cols-3">
           {links.map((l) => (

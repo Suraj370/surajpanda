@@ -1,4 +1,5 @@
 import { Reveal } from "./reveal";
+import { SplitText } from "./split-text";
 import experience from "@/data/experience.json";
 
 const roles = experience;
@@ -9,12 +10,13 @@ export function Experience() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="eyebrow mb-4">Experience</p>
-          <h2 className="serif max-w-2xl text-5xl font-light leading-[1.05] sm:text-6xl">
-            Where I&apos;ve <span className="italic text-clay">worked.</span>
+          <h2 className="serif outline-title max-w-6xl text-[clamp(2.5rem,6vw,5.5rem)]">
+            <SplitText text="Where I've worked." />
           </h2>
         </Reveal>
 
-        <div className="relative mt-14 ml-2 border-l border-line pl-8 sm:pl-12">
+        <div className="relative mt-14 ml-2 pl-8 sm:pl-12">
+          <span className="tl-line absolute inset-y-0 left-0 w-px bg-line" aria-hidden />
           {roles.map((r) => (
             <Reveal key={r.company + r.dates}>
               <div className="relative grid gap-4 py-6 md:grid-cols-[1fr_2fr] md:gap-12">
