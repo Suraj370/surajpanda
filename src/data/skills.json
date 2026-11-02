@@ -1,7 +1,50 @@
 [
-  { "title": "Languages", "items": ["Go", "Java", "Python", "TypeScript"] },
-  { "title": "Backend & data", "items": ["Spring Boot", "Node.js", "PostgreSQL", "REST", "MCP"] },
-  { "title": "Infrastructure", "items": ["Docker", "Raft consensus", "Prometheus", "Grafana", "Testcontainers"] },
-  { "title": "Frontend & design", "items": ["Next.js", "React", "Tailwind", "Figma"] },
-  { "title": "AI", "items": ["LLM APIs", "Guardrails", "Prompt-injection testing", "Text-to-SQL"] }
+  {
+    "title": "Languages",
+    "items": [
+      "Go",
+      "Java",
+      "Python",
+      "TypeScript",
+      "Move"
+    ]
+  },
+  {
+    "title": "Backend & data",
+    "items": [
+      "Spring Boot",
+      "Node.js",
+      "PostgreSQL",
+      "REST",
+      "MCP"
+    ]
+  },
+  {
+    "title": "Infrastructure",
+    "items": [
+      "Docker",
+      "Raft consensus",
+      "Prometheus",
+      "Grafana",
+      "Testcontainers"
+    ]
+  },
+  {
+    "title": "Frontend & design",
+    "items": [
+      "Next.js",
+      "React",
+      "Tailwind",
+      "Figma"
+    ]
+  },
+  {
+    "title": "AI",
+    "items": [
+      "LLM APIs",
+      "Guardrails",
+      "Prompt-injection testing",
+      "Text-to-SQL"
+    ]
+  }
 ]
