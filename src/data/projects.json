@@ -92,6 +92,11 @@
       "title": "ResearchOS",
       "description": "A competitive research dashboard that discovers competitors, plans the research, searches the web and produces analyses and comparisons. Temporal runs one child workflow per competitor in parallel, with Exa for search, an OpenAI model for planning and analysis, and Postgres via Drizzle for storage.",
       "url": "https://github.com/Suraj370/researchos"
+    },
+    {
+      "title": "move-dex",
+      "description": "A constant-product AMM on Sui, written in Move, with a Next.js frontend for swaps, adding and removing liquidity, and flash loans on testnet. Each flash loan returns a receipt that can't be dropped, so a transaction that doesn't repay it fails to run, and all pool math rounds in the pool's favor. The frontend router quotes direct and two-hop routes with the contract's exact integer math and runs the best one as a single PTB.",
+      "url": "https://github.com/Suraj370/move-dex"
     }
   ]
 }
