@@ -46,5 +46,13 @@
       "Prompt-injection testing",
       "Text-to-SQL"
     ]
+  },
+  {
+    "title": "Web3",
+    "items": [
+      "Sui",
+      "Smart contracts",
+      "DeFi / AMMs"
+    ]
   }
 ]
