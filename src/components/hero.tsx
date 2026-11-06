@@ -48,10 +48,12 @@ export function Hero() {
           </div>
           <div className="enter flex flex-wrap items-center gap-3 lg:justify-end" style={d(7)}>
             <MagneticLink
-              href="#work"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-ink px-7 py-4 text-sm font-medium text-bg transition-colors hover:bg-clay"
             >
-              Explore the work
+              Resume
             </MagneticLink>
             <MagneticLink
               href="https://github.com/Suraj370"
