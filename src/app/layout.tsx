@@ -6,10 +6,15 @@ import "./globals.css";
 const sans = Geist({ subsets: ["latin"], variable: "--font-sans" });
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
+const title = "Suraj Panda — Software engineer";
+const description = "Portfolio of Suraj Panda: backend systems, AI tooling and thoughtful interfaces.";
+
 export const metadata: Metadata = {
-  title: "Suraj Panda — Software engineer",
-  description:
-    "Portfolio of Suraj Panda: backend systems, AI tooling and thoughtful interfaces.",
+  metadataBase: new URL("https://surajpanda.vercel.app"),
+  title,
+  description,
+  openGraph: { title, description, url: "/", siteName: "Suraj Panda", type: "website" },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 // Runs before first paint so the saved or system theme never flashes.
