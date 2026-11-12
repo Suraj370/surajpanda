@@ -70,6 +70,24 @@
         "dispatch → parallel to pod pool",
         "heartbeat lost → fail dependents"
       ]
+    },
+    {
+      "title": "Anime Café",
+      "kind": "Browser cooking game",
+      "description": "A drag-and-drop café game where customers walk in one at a time and order pancakes and smoothies before their patience runs out. Game rules live in a pure reducer, drag and drop uses custom pointer events that work with mouse and touch, and the food is layered SVG; progress, upgrades and a guided tutorial persist in localStorage.",
+      "tags": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "SVG"
+      ],
+      "url": "https://animecafe.vercel.app/",
+      "snippet": [
+        "customer → walks in with an order",
+        "drag → plate onto customer",
+        "serve → score + tip before patience ends"
+      ]
     }
   ],
   "more": [
