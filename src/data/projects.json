@@ -102,11 +102,6 @@
       "url": "https://seoye-chi.vercel.app"
     },
     {
-      "title": "Aven.",
-      "description": "An editorial, soft-toned storefront for a luxury beauty brand, built around typography and product story.",
-      "url": "https://boutique-website-landing-page.vercel.app/"
-    },
-    {
       "title": "ResearchOS",
       "description": "A competitive research dashboard that discovers competitors, plans the research, searches the web and produces analyses and comparisons. Temporal runs one child workflow per competitor in parallel, with Exa for search, an OpenAI model for planning and analysis, and Postgres via Drizzle for storage.",
       "url": "https://github.com/Suraj370/researchos"
