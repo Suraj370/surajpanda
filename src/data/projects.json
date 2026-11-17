@@ -110,6 +110,11 @@
       "title": "move-dex",
       "description": "A constant-product AMM on Sui, written in Move, with a Next.js frontend for swaps, adding and removing liquidity, and flash loans on testnet. Each flash loan returns a receipt that can't be dropped, so a transaction that doesn't repay it fails to run, and all pool math rounds in the pool's favor. The frontend router quotes direct and two-hop routes with the contract's exact integer math and runs the best one as a single PTB.",
       "url": "https://github.com/Suraj370/move-dex"
+    },
+    {
+      "title": "Leakproof",
+      "description": "Finds the money an Indian investor loses each year to overlapping mutual funds and weak credit card choices. It reads CAMS/KFintech CAS PDFs and bank CSVs in memory without storing them, flags fund overlap with tax-aware switch-or-wait verdicts (shared LTCG exemption, grandfathered cost, fund-of-funds look-through), and picks the best one or two cards with an exact LP solver implemented in both Go and TypeScript and checked against shared golden fixtures. Go, Fiber, PostgreSQL, Redis, React.",
+      "url": "https://github.com/Suraj370/Leakproof"
     }
   ]
 }
